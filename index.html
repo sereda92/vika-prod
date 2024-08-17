@@ -1558,14 +1558,38 @@ document.addEventListener('DOMContentLoaded', function() {
         gsap.fromTo(".main__title h2", { right: "-100%" }, { right: "0", duration: .9, ease: "power2.out", delay: .5 });
         gsap.fromTo("._arrow", { transform: "rotate(45deg)", opacity: 0 }, { transform: "rotate(0)", opacity: 1, duration: .9, ease: "power2.out", delay: .9, stagger: 0.1 });
         gsap.fromTo(".main__title_info", { x: "-110%" }, { x: "0%", duration: .5, ease: "power2.out", delay: 1, stagger: 0.1 });
-        gsap.fromTo(".subtitle", { x: "100%" }, { x: "0", duration: .5, ease: "power2.out", delay: 1, stagger: 0.1 });
+        gsap.fromTo(".subtitle", { 
+            // x: "100%" 
+            opacity: '0'
+        }, { 
+            // x: "0", 
+            opacity: 1,
+            duration: 1, 
+            ease: "power2.out", 
+            delay: 1.5, 
+            stagger: 0.1 
+        });
     }
 
     function updateResponsiveAnimations() {
         // Добавляем анимации для маленьких экранов
         gsap.fromTo(".main__title h1", { right: "110%" }, { right: "35%", duration: .5, ease: "power2.out", delay: .5, stagger: 0.1 });
         gsap.fromTo(".main__title h2", { right: "-100%" }, { right: "0%", duration: .9, ease: "power2.out", delay: .5, stagger: 0.1 });
-        gsap.fromTo(".subtitle", { x: "250%" }, { x: "5%", duration: 1, ease: "power1.out", delay: 1, repeat: 0 });
+        gsap.fromTo(".subtitle", { 
+            // x: "250%" 
+            opacity: '0'
+        }, { 
+            // x: "5%", 
+            // duration: 1, 
+            // ease: "power1.out", 
+            // delay: 1, 
+            // repeat: 0 
+            opacity: 1,
+            duration: 1, 
+            ease: "power2.out", 
+            delay: 1.5, 
+            stagger: 0.1 
+        });
     }
 
     function updateAnimation() {
