@@ -1621,6 +1621,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <script>
             let initialAnimations = [];
             let responsiveAnimations = [];
+            let resizeTimeout;
         
             function initializeAnimations() {
                 // Очищаем старые анимации
@@ -1636,15 +1637,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 initialAnimations = [
                     gsap.fromTo("#header", { y: -100 }, { y: 0, duration: .2 }),
                     gsap.fromTo(".main__body__img", 
-                        { y: "110%",
-                            opacity: 0
-                        }, 
-                        { y: 0, 
-                            duration: .5, 
-                            ease: "power2.out", 
-                            delay: .5,
-                            opacity: 1
-                        }),
+                        { y: "110%", opacity: 0 }, 
+                        { y: 0, duration: .5, ease: "power2.out", delay: .5, opacity: 1 }),
                     gsap.fromTo(".main__title h1", { right: "110%" }, { right: "22%", duration: .5, ease: "power2.out", delay: .5, stagger: 0.1 }),
                     gsap.fromTo(".main__title h2", { right: "-100%" }, { right: "0", duration: .9, ease: "power2.out", delay: .5 }),
                     gsap.fromTo("._arrow", { transform: "rotate(45deg)", opacity: 0 }, { transform: "rotate(0)", opacity: 1, duration: .9, ease: "power2.out", delay: .9, stagger: 0.1 }),
@@ -1668,18 +1662,30 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         
             function updateAnimation() {
+                // Проверка на размер экрана и установка анимаций
                 if (window.matchMedia("(max-width: 680px)").matches) {
-                    initializeAnimations();  // Запуск начальных анимаций
-                    updateResponsiveAnimations();  // Запуск анимаций для маленьких экранов
+                    initializeAnimations();
+                    updateResponsiveAnimations();
                 } else {
-                    initializeAnimations();  // Запуск начальных анимаций
+                    initializeAnimations();
                 }
             }
-    
-            updateAnimation();
-    
-            window.addEventListener('resize', updateAnimation);
+        
+            function debounce(func, wait) {
+                return function() {
+                    clearTimeout(resizeTimeout);
+                    resizeTimeout = setTimeout(() => func(), wait);
+                };
+            }
+        
+            // Оборачиваем updateAnimation в debounce с задержкой 100ms
+            const debouncedUpdateAnimation = debounce(updateAnimation, 100);
+        
+            updateAnimation();  // Первоначальный запуск
+        
+            window.addEventListener('resize', debouncedUpdateAnimation);  // Используем debounced версию
         </script>
+        
 
 
     <script src="/js/index.bundle.js"></script>
