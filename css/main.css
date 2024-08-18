@@ -950,6 +950,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #000;
 }
 
 .slick-dots li.slick-active button:before {
