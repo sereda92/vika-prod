@@ -66,7 +66,7 @@
             <div class="__container">
                 <header class="header" id="header">
 <nav class="nav">
-    <a href="#wrapper" class="logo__link"><img src="./img/logo.svg" alt="logo"></a>
+    <a href="javascript:void(0);" class="logo__link"><img src="./img/logo.svg" alt="logo"></a>
     <ul class="nav__list">
         <li class="nav__item">
             <a href="#about_me_title" class="nav__link">Про мене</a>
@@ -223,7 +223,7 @@
                         <div class="about_me_img img_wrap">
                             <img class="_stick" src="./img/skotch.png" alt="">
                             <img src="./img/foto/1.jpg" class="_main_foto" alt="">
-                            <p>Це я</p>
+                            <!-- <p>Це я</p> -->
                         </div>
                         <div class="about_me_text notebook" id="trigger">
                             <p class="demo">
@@ -284,7 +284,7 @@
                     <div class="about_me_img img_wrap what_about_img">
                         <img class="_stick" src="./img/skotch.png" alt="">
                         <img src="./img/foto/foto-2.jpg" class="_main_foto _main_foto_about" alt="">
-                        <p>Це я</p>
+                        <!-- <p>Це я</p> -->
                     </div>
                     <div class="about_me_img_plan">
                         <img src="./img/foto/foto-2.png" class="_main_foto" alt="">
@@ -945,12 +945,12 @@
                         <div class="about_me_img img_wrap special-foto _foto_one">
                             <img class="_stick" src="./img/skotch.png" alt="">
                             <img src="./img/vika-main/foto-4.jpg" class="_main_foto" alt="">
-                            <p>тут надпис</p>
+                            <!-- <p>тут надпис</p> -->
                         </div>
                         <div class="about_me_img img_wrap special-foto _foto_two">
                             <img class="_stick" src="./img/skotch.png" alt="">
                             <img src="./img/vika-main/foto-3.jpg" class="_main_foto" alt="">
-                            <p>тут надпис</p>
+                            <!-- <p>тут надпис</p> -->
                         </div>
                     </div>
                 </div>
@@ -1015,7 +1015,7 @@
                         <div class="about_me_img img_wrap beauty-master_img-wrap">
                             <img class="_stick" src="./img/skotch.png" alt="">
                             <img src="./img/vika-main/foto-5.jpg" class="_main_foto" alt="">
-                            <p>тут надпис</p>
+                            <!-- <p>тут надпис</p> -->
                         </div>
                     </div>
                 </div>
@@ -1031,7 +1031,7 @@
                                 <div class="about_me_img img_wrap">
                                     <img class="_stick" src="./img/skotch.png" alt="">
                                     <img src="./img/inside.jpg" class="_main_foto" alt="">
-                                    <p>тут надпис</p>
+                                    <!-- <p>тут надпис</p> -->
                                 </div>
                             </div>
                             <ul class="inside_list">
@@ -1055,7 +1055,7 @@
                                 <div class="about_me_img img_wrap">
                                     <img class="_stick" src="./img/skotch.png" alt="">
                                     <img src="./img/foto/foto-inside.jpg" class="_main_foto" alt="">
-                                    <p>тут надпис</p>
+                                    <!-- <p>тут надпис</p> -->
                                 </div>
                             </div>
                             <ul class="inside_list">
@@ -1658,7 +1658,13 @@
         });
 
     </script>
+    <script>
+        document.querySelector('.logo__link').addEventListener('click', function(event) {
+  event.preventDefault(); // Отменяем стандартное действие ссылки
+  window.location.reload(); // Перезагружаем страницу
+});
 
+    </script>
 
 
     <script src="js/index.bundle.js"></script>
